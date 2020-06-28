@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./Home/js/analytics.js" type="text/javascript"></script><script data-dapp-detection="">
+(function() {
+  let alreadyInsertedMetaTag = false
+
+  function __insertDappDetected() {
+    if (!alreadyInsertedMetaTag) {
+      const meta = document.createElement('meta')
+      meta.name = 'dapp-detected'
+      document.head.appendChild(meta)
+      alreadyInsertedMetaTag = true
+    }
+  }
+
+  if (window.hasOwnProperty('web3')) {
+    // Note a closure can't be used for this var because some sites like
+    // www.wnyc.org do a second script execution via eval for some reason.
+    window.__disableDappDetectionInsertion = true
+    // Likely oldWeb3 is undefined and it has a property only because
+    // we defined it. Some sites like wnyc.org are evaling all scripts
+    // that exist again, so this is protection against multiple calls.
+    if (window.web3 === undefined) {
+      return
+    }
+    __insertDappDetected()
+  } else {
+    var oldWeb3 = window.web3
+    Object.defineProperty(window, 'web3', {
+      configurable: true,
+      set: function (val) {
+        if (!window.__disableDappDetectionInsertion)
+          __insertDappDetected()
+        oldWeb3 = val
+      },
+      get: function () {
+        if (!window.__disableDappDetectionInsertion)
+          __insertDappDetected()
+        return oldWeb3
+      }
+    })
+  }
+})()</script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app39.us.archive.org';v.server_ms=347;archive_analytics.send_pageview({});});</script><script type="text/javascript" src="./Home/js/playback.bundle.js" charset="utf-8"></script>
+<script type="text/javascript" src="./Home/js/wombat.js" charset="utf-8"></script>
+
+</script><meta name="dapp-detected">
+<link rel="stylesheet" type="text/css" href="./Home/css/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="./Home/css/iconochive.css">
+
+  <title>PhoenixARC</title>
+  <link rel="icon" href="https://web.archive.org/web/20180620184422im_/./imgs/icon.png">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./Home/css/bootstrap.min.css">
+  <script src="./Home/js/jquery.min.js"></script>
+  <script src="./Home/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./Home/css/sweetalert2.css">
+  <style>
+html,body { height:100%;}
+#main
+{	
+	text-align: center;
+	margin: auto;
+    	width: 1080px;
+	min-height:100%;
+	height: 100%;
+}
+
+body
+{
+	margin: auto;
+	overflow-x:hidden;
+	font-size: 100%;
+	background-color: #000000;
+	width: 1080px;
+	height: auto;
+}
+
+#container_holder
+{
+    	width: 1080px;
+	margin-top: 25vh;
+}
+
+#splashstart
+{
+	margin: auto;
+	height: 400px;
+	position: relative;
+	width: 1080px;
+}
+
+#featured_right
+{
+	margin-top: 25px;
+	width: 580px;
+	text-align: center; 
+	float: right;
+}
+
+#featured_left
+{
+	position: relative;
+	top: 20px;
+	width: 500px;
+	height: 100%;
+	float: left;
+	padding-left:80px;
+}
+
+bold
+{
+	color: #ffffff;
+	font-size: 300%;
+	font-weight: 700;
+}
+
+selected
+{ 
+	color: #2D9CE0;
+	text-decoration: none;
+}
+
+a
+{
+	text-decoration: none;
+	font-size: 180%;
+	color: #ffffff;
+}
+
+a:hover
+{
+     color: #ffffff;
+     text-decoration: none;
+}
+
+div {
+    -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+    animation-fill-mode: forwards;
+}
+
+.pckDescrip {
+color:#ffffff;
+text-align: left;
+margin-left: 500px;
+} 
+
+.button {
+    display: inline-block;
+    margin: auto;
+    position: relative;
+    text-align: center;
+    align: center;
+    background-color: #ffffff;
+    padding-top: 5px;
+    width: 200px;
+    height: 250px;
+    box-shadow: 0 4% 8% 0 rgba(0,0,0,0.2),0 6% 20% 0 rgba(0,0,0,0.19);
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.button:after {
+    content: "";
+    background: #90EE90;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+  </style>
+</head>
+<body loop="-1" id="home" data-spy="scroll" data-target=".navbar" data-offset="50" class="nimbus-is-editor"><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<style type="text/css">
+body {
+  margin-top:0 !important;
+  padding-top:0 !important;
+  /*min-width:800px !important;*/
+}
+</style>
+<div id="wm-ipp-base" lang="en" style="display: block; direction: ltr;">
+</div><div id="donato" style="position:relative;width:100%;">
+  <div id="donato-base">
+    <iframe id="donato-if" src="./Home/donate.html" scrolling="no" frameborder="0" style="width:100%; height:100%">
+    </iframe>
+  </div>
+</div><script type="text/javascript">
+__wm.bt(625,27,25,2,"web","./","20180620184422",1996,"/_static/",["/_static/css/banner-styles.css?v=HyR5oymJ","/_static/css/iconochive.css?v=qtvMKcIJ"]);
+</script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+		
+		
+		
+		<div style="text-align: center;" id="main">
+		
+			<!-- Nav Bar -->
+			<nav class="navbar navbar-inverse navbar-fixed-top" style="height: auto; display:inline-block;">
+  				<div class="container-fluid">
+    					<div class="navbar-header">
+      					<a href="./"><img height="30px" style="position: static; margin-top: 8px;" src="./Home/img/nobledezlogo.png"></a>
+    					</div>
+    					<ul class="nav navbar-nav">
+      						<li style="display:inline-block;" class="section active"><a href="#home">HOME</a></li>
+      						<li style="display:inline-block;" class=""><a href="#shop">SHOP</a></li>
+      						<li style="display:inline-block;" class=""><a href="#software">SOFTWARE</a></li>
+      						<li style="display:inline-block;"><a href="#mods">MODS</a></li>
+      						<li style="display:inline-block;" class=""><a href="#contact">CONTACT</a></li>
+    					</ul>
+  				</div>
+			</nav>
+			
+			<div id="container_holder">
+			
+				<!-- Start Splash Page -->
+				<div id="splashstart">
+					<img style="position: absolute; margin: auto; z-index: -1; margin-left: -100px; margin-top: -150px;" width="1080px" src="./Home/img/sitebg.png">
+					<img width="900px" height="auto" src="./Home/img/nobledezlogo.png"><br>
+					<img width="900px" height="auto" src="./Home/img/whiteline.png"><br>
+					<a style="font-size: 220%;">SOFTWARE DEVELOPER • PLAYSTATION 3 MODDER • MINECRAFT MODDER</a>
+				</div><br>
+				
+				<!-- Info/Intro -->
+				<div id="about" style="background-color: #262626; height: 545px; padding-top: 15px;">
+					<div id="featured_left" style="text-align:left; margin: auto;">
+						<br>
+						<br>
+						<bold>Hi, I'm PhoenixARC!</bold><br>
+						<a style="font-size: 150%;">   but you can just call me Felix. I am a Youtube<br>
+						Content Creator currently with exactly 127 Subscribers.<br>
+						I started my channel off of game modding, and that's<br>
+						WHat I've been doing for the past 4 years<br>
+						<br>
+						<br>
+ 						I also develop mod-based software. I code in PHP and C#,<br>
+ 						although I'm working on learning other languages like C++/Javascript. <br>
+ 						You can find most of my work on this site.<br>
+ 						<br>
+ 						<br>
+						<br>
+					</a></div><a style="font-size: 150%;">
+					<!-- 
+					<div id="featured_right" style="margin: auto;">
+						<img width="75%" height="75%" src="./Home/nobledezirl.png">
+					</div> -->
+				</a></div><a style="font-size: 150%;">
+				
+				</a><div id="shop" style="background-color: #2c2e33; height: 545px; padding-top: 15px;"><a style="font-size: 150%;">
+   					</a><a style="font-size: 220%;">SHOP</a><br><br>
+   					<div id="featured_left" style="text-align:left; margin: auto;">
+      						<img width="500px" height="auto" src="./Home/img/merchPreview.png">
+   					</div>
+   					<div id="featured_right" style="margin: auto; margin-top: 120px;">
+      						<a> Want to show your support while being stylish<br>at the same time? Check out the merch shop!</a><br>
+      						<a href="https://shop.spreadshirt.com/phoenixarc/"><button class="btn btn-primary btn-lg" style="margin-top: 50px;" type="button"> ENTER SHOP </button></a>
+   					</div>
+				</div>
+				
+				
+				
+				<div id="software" style="background-color: #1e1f23; height: 475px; padding-top: 15px;">
+				<a style="font-size: 220%; margin-left: -500px;;">SOFTWARE</a><br>
+					
+					<a href="./Software/XMBMLGen">
+					</a><button class="btn btn-lg" style="margin-top: 50px;" type="button"><a href="./Software/XMBMLGen/XMBMLGen.zip">
+					<img width="200px;" src="./Home/img/wiiuMapManagerIcon.png"><br>
+					</a><a style="color: #000000;">PS3 XMBML Generator</a>
+					</button>
+					
+					
+					<a href="./Software/pckStudio">
+					</a><button class="btn btn-lg" style="margin-top: 50px;" type="button"><a href="./Software/pckStudio/PckStudio.zip">
+					<img width="200px;" src="./Home/img/pckStudioIcon.png"><br>
+					</a><a style="color: #000000;">PCK Studio Remake</a>
+					</button>
+					
+					
+					<a href="./Software/FUIEditor">
+					</a><button class="btn btn-lg" style="margin-top: 50px;" type="button"><a href="./Software/FUIEditor/FUIEditor.zip">
+					<img width="200px;" src="./Home/img/clientModderIcon.png"><br>
+					</a><a style="color: #000000;">FUI Editor redesign</a>
+					</button>
+					
+					
+				</div>
+				
+				
+				
+				<div id="mods" style="background-color: #151619; height: 350px; padding-top: 15px;">
+				<a style="font-size: 220%;">MODS</a>
+				
+				<!-- DLC Modal -->
+				<div id="myModalDLC" class="modal fade" role="dialog">
+  					<div class="modal-dialog">
+
+    						<!-- Modal content-->
+    						<div class="modal-content">
+      							<div class="modal-header">
+        							<button type="button" class="close" data-dismiss="modal">×</button>
+        							<h4 id="retrieveName" class="modal-title">Modal Header</h4>
+      							</div>
+      							<div class="modal-footer" style="width: 598px; height: 310px; display: inline-block;">
+  										<img width="280px" style="float: left; z-index: 2;" height="280px" id="pckImage">
+								<div class="panel panel-default" style="float: right; width:300px; height: 150px; margin-top: -50%;">
+  									<div style="float: right; text-align:left;" class="panel-body">
+        									<a style="color: #000000; font-size:130%;" id="retrieveDescription"><br>
+        									</a><a style="color: #090f23; font-size:130%;" id="retrieveCreator"><br>
+        								</a></div><a style="color: #090f23; font-size:130%;" id="retrieveCreator">
+        								</a><div class="btn-group" style="margin-bottom: -80%;"><a style="color: #090f23; font-size:130%;" id="retrieveCreator">
+        									<a id="directDownload"/><button type="button" class="btn btn-primary">DOWNLOAD</button>;</a></br>
+									</div>
+        							</div>
+      							</div>
+    						</div>
+  					</div>
+				</div>
+				
+				<!-- Savedata Modal -->
+				<div id="myModalSavedata" class="modal fade" role="dialog">
+  					<div class="modal-dialog">
+
+    						<!-- Modal content-->
+    						<div class="modal-content">
+      							<div class="modal-header">
+        							<button type="button" class="close" data-dismiss="modal">×</button>
+        							<h4 id="retrieveModName" class="modal-title">Modal Header</h4>
+      							</div>
+      							<div class="modal-footer" style="width: 598px; height: 320px; display: inline-block;">
+  										<img width="280px" style="float: left; z-index: 2;" height="280px" id="modImage">
+								<div class="panel panel-default" style="float: right; width:300px; height: 180px; margin-top: -50%;">
+  									<div style="float: right; text-align:left;" class="panel-body">
+        									<a style="color: #000000; font-size:130%;" id="retrieveModDescription"><br>
+        									</a><a style="color: #090f23; font-size:130%;" id="retrieveModCreator"><br>
+        								</a></div><a style="color: #090f23; font-size:130%;" id="retrieveModCreator">
+        								</a><div class="btn-group" style="margin-bottom: -50%;"><a style="color: #090f23; font-size:130%;" id="retrieveModCreator">
+  										</a><a id="pasteLink" href="http://pintient.com/JlC"><button type="button" class="btn btn-primary default">PASTEBIN</button></a><a id="retrieveTutorial" href="http://fail.com/"><button type="button" class="btn btn-primary default">TUTORIAL</button></a>
+									</div>
+        							</div>
+      							</div>
+    						</div>
+  					</div>
+				</div>
+		
+		<div id="McCSkins" style="margin-top: 10px;">
+<div style="overflow-y:hidden; background-color: #000000; white-space: nowrap; overflow-x: auto; width: 100%; height: 240px; display: block;">
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('./Server/PckCenter/PckIMG/dlc/disney.png')">     
+<name onclick="selectName('DisneySkinPack')">     
+<creator onclick="selectCreator('Spectrose')">     
+<localdir onclick="selectDir('./Server/PckCenter/PckFiles/dlc/disney by Spectrose.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="./Server/PckCenter/PckIMG/dlc/disney.png"><br><a style="color:#000000; font-size: 16px;">DisneySkinPack</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('./Server/PckCenter/PckIMG/dlc/kawaii.png')">     
+<name onclick="selectName('KawaiiSkinPack')">     
+<creator onclick="selectCreator('Spectrose')">     
+<localdir onclick="selectDir('./Server/PckCenter/PckFiles/dlc/Kawaii.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="./Server/PckCenter/PckIMG/dlc/kawaii.png"><br><a style="color:#000000; font-size: 16px;">KawaiiSkinPack</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('./Server/PckCenter/PckIMG/dlc/sacha.png')">     
+<name onclick="selectName('NoobSkinPack')">     
+<creator onclick="selectCreator('Spectrose')">     
+<localdir onclick="selectDir('./Server/PckCenter/PckFiles/dlc/pack noob.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="./Server/PckCenter/PckIMG/dlc/sacha.png"><br><a style="color:#000000; font-size: 16px;">NoobSkinPack</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('./Server/PckCenter/PckIMG/dlc/vanossgaming.png')">     
+<name onclick="selectName('VanossgamingSkinPack')">     
+<creator onclick="selectCreator('Spectrose')">     
+<localdir onclick="selectDir('./Server/PckCenter/PckFiles/dlc/Vanoss Gaming.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="./Server/PckCenter/PckIMG/dlc/vanossgaming.png"><br><a style="color:#000000; font-size: 16px;">VanossgamingSkinPack</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+		
+  		<a href="./mods/"><img style="margin-top:-250px" width="180px" height="180px" src="./Home/img/seeMore.png"></a>
+
+		</div>
+		</div>
+		</div>
+		<script type="text/javascript">
+		{
+function selectIcon(pckIcon){
+document.getElementById("pckImage").src = pckIcon;
+    		}
+
+function selectName(pckName){
+document.getElementById("retrieveName").innerHTML = pckName;
+    		}
+    		
+function selectDir(Dir){
+document.getElementById("directDownload").href = Dir;
+    		}
+    		
+function selectMirror(mrLink){
+document.getElementById("mirrorDownload").href = mrLink;
+    		}     		
+    		
+function selectCreator(pckCreator){
+document.getElementById("retrieveCreator").innerHTML = "</br>PCK by: " + pckCreator;
+    		}
+    		
+function selectAmount(amount){
+document.getElementById("retrieveAmount").innerHTML = "Skin Amount: " + amount;
+    		}   
+ 
+function selectDescrip(description){
+document.getElementById("retrieveDescription").innerHTML = description;
+    		}
+    		
+function selectModIcon(modIcon){
+document.getElementById("modImage").src = modIcon;
+    		}
+
+function selectModName(modName){
+document.getElementById("retrieveModName").innerHTML = modName;
+    		}
+    		
+function selectPaste(msLink){
+document.getElementById("pasteLink").href = msLink;
+    		}     		
+    		
+function selectModCreator(modCreator){
+document.getElementById("retrieveModCreator").innerHTML = modCreator;
+    		}
+    		
+function selectTutorial(tutorialLink){
+document.getElementById("retrieveTutorial").href = tutorialLink;
+    		}   
+    		
+function selectModDescrip(modDescription){
+document.getElementById("retrieveModDescription").innerHTML = modDescription;
+    		}   
+
+function theFunction(e)
+{
+  	
+var btn = document.getElementById(e.target.id);    	
+    	
+// Get the modal
+var modal = document.getElementById('myModal');
+var Mainfooter = document.getElementById('Mainfooter');
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+    Mainfooter.style.display = "none";
+    btn="";
+}
+
+}
+ 
+}
+		</script>
+				</div>
+				
+				<div id="contact" style="background-color: #535d6d; height: 400px; padding-top: 15px;">
+				<a style="font-size: 220%;">CONTACT ME</a><br><br><br>
+				
+				<div id="featured_right" style="margin-top: -15px;">
+					<!-- <img width="300px" src="./Home/img/nobledezContact.png"> -->
+				</div>
+				
+				<div class="list-group" id="feature_left" style=" margin-left: 25px; text-align:left; width: 450px;">
+  					<a class="list-group-item">Business Email: admin@phoenixarc.pw</a>
+	  				<a href="https://twitter.com/phoenixarc2" class="list-group-item">Twitter: @PhoenixARC2</a>
+  					<a href="https://www.instagram.com/phoenixarc-01/" class="list-group-item">Instagram: @phoenixarc-01</a>
+				</div>
+				
+				</div>
+				
+				<div style="float: left;">
+						<br><br>
+						<img width="100%" height="auto" src="./Home/img/whiteline.png"><br>
+						<a href="https://www.youtube.com/channel/UCRX1QghQRJTAgXx11Hc_IVQ/">
+						<img width="4%" height="4%" src="./Home/img/iconYoutube.png">
+						</a>
+						<a href="https://www.twitter.com/phoenixarc2/">
+						<img width="4%" height="4%" src="./Home/img/iconTwitter.png">
+						</a>
+						<a href="https://www.instagram.com/phoenixarc-01/">
+						<img width="4%" height="4%" src="./Home/img/iconInstagram.png">
+						</a>
+				</div>
+			</div>
+		
+<script src="./Home/js/sweetalert2.js"></script>
+<script type="text/javascript">
+        $(function() {
+            $('.myModalSavedata').click(function(event) {
+                swal('Thanks you for 4k subcscribers')
+                });
+        });
+    </script>
+
+
+    </div>
+</div>
+</div>
+</body></html>

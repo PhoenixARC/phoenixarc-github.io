@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>Mods - PhoenixARC</title>
+  <link rel="icon" href="./imgs\icon.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <script src="./css/jquery.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./css/sweetalert2.css">
+  <style>
+html,body { height:100%;}
+#main
+{	
+	text-align: center;
+	margin: auto;
+    	width: 1080px;
+	min-height:100%;
+	height: 100%;
+}
+
+body
+{
+	margin: auto;
+	overflow-x:hidden;
+	font-size: 100%;
+	background-color: #000000;
+	width: 1080px;
+	height: auto;
+}
+
+#container_holder
+{
+    	width: 1080px;
+	margin-top: 25vh;
+}
+
+#splashstart
+{
+	margin: auto;
+	height: 400px;
+	position: relative;
+	width: 1080px;
+}
+
+#featured_right
+{
+	margin-top: 25px;
+	width: 580px;
+	text-align: center; 
+	float: right;
+}
+
+#featured_left
+{
+	position: relative;
+	top: 20px;
+	width: 500px;
+	height: 100%;
+	float: left;
+	padding-left:80px;
+}
+
+bold
+{
+	color: #ffffff;
+	font-size: 300%;
+	font-weight: 700;
+}
+
+selected
+{ 
+	color: #2D9CE0;
+	text-decoration: none;
+}
+
+a
+{
+	text-decoration: none;
+	font-size: 180%;
+	color: #ffffff;
+}
+
+a:hover
+{
+     color: #ffffff;
+     text-decoration: none;
+}
+
+div {
+    -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+    animation-fill-mode: forwards;
+}
+
+.pckDescrip {
+color:#ffffff;
+text-align: left;
+margin-left: 500px;
+} 
+
+.button {
+    display: inline-block;
+    margin: auto;
+    position: relative;
+    text-align: center;
+    align: center;
+    background-color: #ffffff;
+    padding-top: 5px;
+    width: 200px;
+    height: 250px;
+    box-shadow: 0 4% 8% 0 rgba(0,0,0,0.2),0 6% 20% 0 rgba(0,0,0,0.19);
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.button:after {
+    content: "";
+    background: #90EE90;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+  </style>
+</head>
+		
+		
+		
+		<div style="text-align: center;" id="main">
+		
+			<!-- Nav Bar -->
+			<nav class="navbar navbar-inverse navbar-fixed-top" style="height: auto; display:inline-block;">
+  				<div class="container-fluid">
+    					<div class="navbar-header">
+      					<a href="../"><img height="30px" style="position: static; margin-top: 8px;" src="./img/phoenixarclogo.png"/></a>
+    					</div>
+    					<ul class="nav navbar-nav">
+      						<li style="display:inline-block;"><a href="../#home">HOME</a></li>
+      						<li style="display:inline-block;"><a href="../shop">SHOP</a></li>
+      						<li style="display:inline-block;"><a href="../#software">SOFTWARE</a></li>
+      						<li style="display:inline-block;" class="section"><a href="#mods">MODS</a></li>
+      						<li style="display:inline-block;"><a href="../#contact">CONTACT</a></li>
+    					</ul>
+  				</div>
+			</nav>
+			
+			<div id="container_holder">
+			
+				<div id="mods" style="background-color: #2c2e33; height: 650px; padding-top: -50px; z-index: -2; margin-top: -100px;">
+				
+				<a style="font-size: 220%; padding-top: 15px;">MODS</a></br></br>
+				<!-- DLC Modal -->
+				<div id="myModalDLC" class="modal fade" role="dialog">
+  					<div class="modal-dialog">
+
+    						<!-- Modal content-->
+    						<div class="modal-content">
+      							<div class="modal-header">
+        							<button type="button" class="close" data-dismiss="modal">&times;</button>
+        							<h4 id="retrieveName" class="modal-title">Modal Header</h4>
+      							</div>
+      							<div class="modal-footer" style="width: 598px; height: 310px; display: inline-block;">
+  										<img width="280px" style="float: left; z-index: 2;" height="280px" id="pckImage"/>
+								<div class="panel panel-default" style="float: right; width:300px; height: 150px; margin-top: -50%;">
+  									<div style="float: right; text-align:left;" class="panel-body">
+        									<a style="color: #000000; font-size:130%;" id="retrieveDescription"/></br>
+        									<a style="color: #000000; font-size:130%;" id="retrieveAmount"/></br>
+        									<a style="color: #090f23; font-size:130%;" id="retrieveCreator"/></br>
+        								</div>
+        								<div class="btn-group" style="margin-bottom: -80%;">
+        									<a id="directDownload"/><button type="button" class="btn btn-primary">DOWNLOAD</button>;</a></br>
+  										
+									</div>
+        							</div>
+      							</div>
+    						</div>
+  					</div>
+				</div>
+				
+				<!-- Savedata Modal -->
+				<div id="myModalSavedata" class="modal fade" role="dialog">
+  					<div class="modal-dialog">
+
+    						<!-- Modal content-->
+    						<div class="modal-content">
+      							<div class="modal-header">
+        							<button type="button" class="close" data-dismiss="modal">&times;</button>
+        							<h4 id="retrieveModName" class="modal-title">Modal Header</h4>
+      							</div>
+      							<div class="modal-footer" style="width: 598px; height: 320px; display: inline-block;">
+  										<img width="280px" style="float: left; z-index: 2;" height="280px" id="modImage"/>
+								<div class="panel panel-default" style="float: right; width:300px; height: 180px; margin-top: -50%;">
+  									<div style="float: right; text-align:left;" class="panel-body">
+        									<a style="color: #000000; font-size:130%;" id="retrieveModDescription"/></br>
+        									<a style="color: #090f23; font-size:130%;" id="retrieveModCreator"/></br>
+        								</div>
+
+        							</div>
+      							</div>
+    						</div>
+  					</div>
+				</div>
+		
+		<div id="McCSkins" style="margin-top: 10px;">
+			<div class="dlc" style="overflow-y:hidden; background-color: #070707; white-space: nowrap; overflow-x: auto; width: 100%; height: 25px; display: block;">
+			<a style="color: #ffffff; position: static;">Minecraft Mods</a><br>
+			</div>
+<div class="dlc" style="overflow-y:auto; background-color: #000000; width: 100%; height: 500px; display: block;">
+				
+		
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/spswp7_orig.png')">     
+<name onclick="selectName('CreeperSkinPack')">     
+<creator onclick="selectCreator('PhoenixARC')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/Creeper Skin Pack.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/spswp7_orig.png"><br><a style="color:#000000; font-size: 16px;">CreeperSkinPack</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/spswp2_orig.png')">     
+<name onclick="selectName('Minecon2019SkinPack')">     
+<creator onclick="selectCreator('PhoenixARC')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/Minecon2019.pck')">     
+<description onclick="selectDescrip(' </br></br> ')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/spswp2_orig.png"><br><a style="color:#000000; font-size: 16px;">Minecon2019SkinPack</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/spswp4_orig.png')">     
+<name onclick="selectName('HDSkinPack')">     
+<creator onclick="selectCreator('PhoenixARC')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/hdskin1.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/spswp4_orig.png"><br><a style="color:#000000; font-size: 16px;">HDSkinPack</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/spswp3_orig.png')">     
+<name onclick="selectName('GirlsSkinPack#1')">     
+<creator onclick="selectCreator('PhoenixARC')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/girls.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/spswp3_orig.png"><br><a style="color:#000000; font-size: 16px;">GirlsSkinPack#1</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/spswp_orig.png')">     
+<name onclick="selectName('PhoenixGenerationsSkinPack')">     
+<creator onclick="selectCreator('PhoenixARC')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/Phoenix Generations.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/spswp_orig.png"><br><a style="color:#000000; font-size: 16px;">PhoenixGenerationsSkinPack</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/Hackers.png')">     
+<name onclick="selectName('EliteHackers')">     
+<creator onclick="selectCreator('PhoenixARC')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/EliteHackers.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/Hackers.png"><br><a style="color:#000000; font-size: 16px;">EliteHackers</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/meme.png')">     
+<name onclick="selectName('2018Memes')">     
+<creator onclick="selectCreator('PhoenixARC')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/EliteHackers.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/meme.png"><br><a style="color:#000000; font-size: 16px;">2018Memes</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/apps.png')">     
+<name onclick="selectName('Apps')">     
+<creator onclick="selectCreator('PhoenixARC')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/Apps.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/apps.png"><br><a style="color:#000000; font-size: 16px;">Apps</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/CerealBoxSkinPack..png')">     
+<name onclick="selectName('CerealSkins')">     
+<creator onclick="selectCreator('PhoenixARC')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/CerealBoxSkinPack.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/CerealBoxSkinPack..png"><br><a style="color:#000000; font-size: 16px;">CerealSkins</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/Enderman.png')">     
+<name onclick="selectName('Endermenskins')">     
+<creator onclick="selectCreator('PhoenixARC')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/Enderman.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/Enderman.png"><br><a style="color:#000000; font-size: 16px;">Endermenskins</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/gaming.png')">     
+<name onclick="selectName('GameAll-stars')">     
+<creator onclick="selectCreator('PhoenixARC')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/GameAllStars.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/gaming.png"><br><a style="color:#000000; font-size: 16px;">GameAll-stars</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/Mobs.png')">     
+<name onclick="selectName('Hiden'Seek:Mobs')">     
+<creator onclick="selectCreator('PhoenixARC')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/HNSMobsPack.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/Mobs.png"><br><a style="color:#000000; font-size: 16px;">Hiden'Seek:Mobs</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/jurrasicpark.png')">     
+<name onclick="selectName('JurrasicWorld')">     
+<creator onclick="selectCreator('PhoenixARC')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/Jurassic_World_Skin_Pack.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/jurrasicpark.png"><br><a style="color:#000000; font-size: 16px;">JurrasicWorld</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/MegaPack.png')">     
+<name onclick="selectName('MegaPack')">     
+<creator onclick="selectCreator('PhoenixARC')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/MegaPack.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/MegaPack.png"><br><a style="color:#000000; font-size: 16px;">MegaPack</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/portraits.png')">     
+<name onclick="selectName('Portraits')">     
+<creator onclick="selectCreator('PhoenixARC')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/Portrait.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/portraits.png"><br><a style="color:#000000; font-size: 16px;">Portraits</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/reQuestPCK.png')">     
+<name onclick="selectName('ReQuestPack')">     
+<creator onclick="selectCreator('PhoenixARC')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/reQuestPCK.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/reQuestPCK.png"><br><a style="color:#000000; font-size: 16px;">ReQuestPack</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/StevenUniverse.png')">     
+<name onclick="selectName('StevenUniverse')">     
+<creator onclick="selectCreator('PhoenixARC')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/StevenUniverse.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/StevenUniverse.png"><br><a style="color:#000000; font-size: 16px;">StevenUniverse</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/TerrariaSkinPack..png')">     
+<name onclick="selectName('Terraria')">     
+<creator onclick="selectCreator('PhoenixARC')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/TerrariaSkinPack.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/TerrariaSkinPack..png"><br><a style="color:#000000; font-size: 16px;">Terraria</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/UltmateBlocks.png')">     
+<name onclick="selectName('UltimateBlocks')">     
+<creator onclick="selectCreator('PhoenixARC')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/UltmateBlocks.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/UltmateBlocks.png"><br><a style="color:#000000; font-size: 16px;">UltimateBlocks</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/YoutuberSkinPack.png')">     
+<name onclick="selectName('YoutuberSkins')">     
+<creator onclick="selectCreator('PhoenixARC')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/YoutuberSkinPack.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/YoutuberSkinPack.png"><br><a style="color:#000000; font-size: 16px;">YoutuberSkins</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/creeper.png')">     
+<name onclick="selectName('CreeperSkinPack')">     
+<creator onclick="selectCreator('Spectrose')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/Creeper Skin Pack.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/creeper.png"><br><a style="color:#000000; font-size: 16px;">CreeperSkinPack</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/disney.png')">     
+<name onclick="selectName('DisneySkinPack')">     
+<creator onclick="selectCreator('Spectrose')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/disney by Spectrose.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/disney.png"><br><a style="color:#000000; font-size: 16px;">DisneySkinPack</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/kawaii.png')">     
+<name onclick="selectName('KawaiiSkinPack')">     
+<creator onclick="selectCreator('Spectrose')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/Kawaii.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/kawaii.png"><br><a style="color:#000000; font-size: 16px;">KawaiiSkinPack</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/sacha.png')">     
+<name onclick="selectName('NoobSkinPack')">     
+<creator onclick="selectCreator('Spectrose')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/pack noob.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/sacha.png"><br><a style="color:#000000; font-size: 16px;">NoobSkinPack</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/vanossgaming.png')">     
+<name onclick="selectName('VanossgamingSkinPack')">     
+<creator onclick="selectCreator('Spectrose')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/Vanoss Gaming.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/vanossgaming.png"><br><a style="color:#000000; font-size: 16px;">VanossgamingSkinPack</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/Brendan's Models V1.pck')">     
+<name onclick="selectName('Brendan'sModelsV1')">     
+<creator onclick="selectCreator('Brendan')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/Brendan's Models V1.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/Brendan's Models V1.pck"><br><a style="color:#000000; font-size: 16px;">Brendan'sModelsV1</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/joshuapic.png')">     
+<name onclick="selectName('Joshua'sSkins')">     
+<creator onclick="selectCreator('Joshua')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/Joshuas-Skins.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/joshuapic.png"><br><a style="color:#000000; font-size: 16px;">Joshua'sSkins</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/minebreewpic.png')">     
+<name onclick="selectName('MinebrewModders')">     
+<creator onclick="selectCreator('Discord')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/Minebrew_Modders_1.1.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/minebreewpic.png"><br><a style="color:#000000; font-size: 16px;">MinebrewModders</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/sanicmodelspic.png')">     
+<name onclick="selectName('SonicSkins')">     
+<creator onclick="selectCreator('Discord')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/SonicSkins.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/sanicmodelspic.png"><br><a style="color:#000000; font-size: 16px;">SonicSkins</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/45625w 2019 Skin Pack.png')">     
+<name onclick="selectName('45625w2019SkinPack')">     
+<creator onclick="selectCreator('RoneandBomby')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/45625w 2019 Skin Pack.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/45625w 2019 Skin Pack.png"><br><a style="color:#000000; font-size: 16px;">45625w2019SkinPack</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/Discontinued Series Skin Pack.png')">     
+<name onclick="selectName('DiscontinuedSeriesSkinPack')">     
+<creator onclick="selectCreator('RoneandBomby')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/Discontiued Series.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/Discontinued Series Skin Pack.png"><br><a style="color:#000000; font-size: 16px;">DiscontinuedSeriesSkinPack</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/sonicjell.png')">     
+<name onclick="selectName('TheUltamiteSonicSkinPack(ByJelly)')">     
+<creator onclick="selectCreator('VDJelly')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/The Ultamite Sonic Skin Pack (By Jelly).pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/sonicjell.png"><br><a style="color:#000000; font-size: 16px;">TheUltamiteSonicSkinPack(ByJelly)</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+
+
+
+
+<icon data-toggle="modal" data-target="#myModalDLC" onclick="selectIcon('../Server/PckCenter/PckIMG/dlc/It never is too late.png')">     
+<name onclick="selectName('Easterpack')">     
+<creator onclick="selectCreator('RoneandBomby')">     
+<localdir onclick="selectDir('../Server/PckCenter/PckFiles/dlc/Easter.pck')">     
+<description onclick="selectDescrip('</br></br>')">     
+<skinamount onclick="selectAmount('40')">     
+<div class="button" id="2" onclick="theFunction(event)">     
+<img width="180px" height="180px" src="../Server/PckCenter/PckIMG/dlc/It never is too late.png"><br><a style="color:#000000; font-size: 16px;">Easterpack</a><br>     
+<br>     
+</div></skinamount></description></localdir></mirrorlink></creator></name></icon>
+		</div>
+		</div>
+		</div>
+		<script type="text/javascript">
+		{ 
+function selectIcon(pckIcon){
+document.getElementById("pckImage").src = pckIcon;
+    		}
+
+function selectName(pckName){
+document.getElementById("retrieveName").innerHTML = pckName;
+    		}
+    		
+function selectDir(Dir){
+document.getElementById("directDownload").href = Dir;
+    		}
+    		
+function selectMirror(mrLink){
+document.getElementById("mirrorDownload").href = mrLink;
+    		}     		
+    		
+function selectCreator(pckCreator){
+document.getElementById("retrieveCreator").innerHTML = "</br>PCK by: " + pckCreator;
+    		}
+    		
+function selectAmount(amount){
+document.getElementById("retrieveAmount").innerHTML = "Pack Size: " + amount;
+    		}   
+ 
+function selectDescrip(description){
+document.getElementById("retrieveDescription").innerHTML = description;
+    		}
+    		
+function selectModIcon(modIcon){
+document.getElementById("modImage").src = modIcon;
+    		}
+
+function selectModName(modName){
+document.getElementById("retrieveModName").innerHTML = modName;
+    		}
+    		
+function selectPaste(msLink){
+document.getElementById("pasteLink").href = msLink;
+    		}     		
+    		
+function selectModCreator(modCreator){
+document.getElementById("retrieveModCreator").innerHTML = modCreator;
+    		}
+    		
+function selectTutorial(tutorialLink){
+document.getElementById("retrieveTutorial").href = tutorialLink;
+    		}   
+    		
+function selectModDescrip(modDescription){
+document.getElementById("retrieveModDescription").innerHTML = modDescription;
+    		}   
+
+function theFunction(e)
+{
+  	
+var btn = document.getElementById(e.target.id);    	
+    	
+// Get the modal
+var modal = document.getElementById('myModal');
+var Mainfooter = document.getElementById('Mainfooter');
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+    Mainfooter.style.display = "none";
+    btn="";
+}
+
+}
+ 
+}
+		</script>
+				</div>
+				
+				<div">
+						</br></br>
+						<img width="100%" height="auto" src="./img/whiteline.png"/><br>
+						<a href="https://web.archive.org/web/20180416092011/https://www.youtube.com/c/nobledezgaming/">
+						<img width="4%" height="4%" src="./img/iconYoutube.png"/>
+						</a>
+						<a href="https://web.archive.org/web/20180416092011/https://www.twitter.com/nobledez/">
+						<img width="4%" height="4%" src="./img/iconTwitter.png"/>
+						</a>
+						<a href="https://web.archive.org/web/20180416092011/https://www.instagram.com/real_nobledez/">
+						<img width="4%" height="4%" src="./img/iconInstagram.png"/>
+						</a>
+				</div>
+			</div>
+		</div>
+</body>
+</html>
